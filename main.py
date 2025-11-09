@@ -1,12 +1,16 @@
-# 在这个文件中编写代码
 def has_duplicates(lst):
     """
     检查列表中是否有重复元素
     参数: lst - 任意列表
     返回: bool - 如果有重复元素返回 True，否则返回 False
     """
-    # 学生实现代码区域
-   
+    seen = set()
+    for element in lst:
+        if element in seen:
+            return True
+        seen.add(element)
+    return False
+
 
 # 主程序 - 测试函数
 if __name__ == "__main__":
@@ -17,5 +21,7 @@ if __name__ == "__main__":
         ["a", "b", "a"],    # 字符串重复
         []                   # 空列表
     ]
-    
-    # 测试每个用例，编写具体测试代码
+
+    for case in test_cases:
+        result = has_duplicates(case)
+        print(f"列表 {case} 是否有重复元素: {result}")
